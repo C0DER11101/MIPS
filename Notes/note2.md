@@ -25,7 +25,7 @@ Here, things are a bit different. Here, we are loading `11`, the code to print a
 
 <img src="https://user-images.githubusercontent.com/96164229/240655932-9f9c87db-d6bd-488e-9ec6-ddadde592bfe.png" width="60%" height="60%">
 
-The number that you see stored in `$at` is actually the decimal equivalent of the address of `myChar` which is `0x100100001`.
+The number that you see stored in `$at` is actually the decimal equivalent of the address of `myChar` which is `0x10010000`.
 
 </details>
 

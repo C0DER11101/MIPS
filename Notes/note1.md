@@ -17,7 +17,7 @@
 In the above assembly program, `myMessage` is a variable that stores the string `"Hello assembly!!\n"` and is stored in RAM.
 
 Now, since we want to display the string into the output, we need to load the code `4` onto the register `$v0`:
-```mips
+```asm
 li $v0 4
 ```
 this basically tells the system that a string is about to be printed. `li` means _load immediate_.

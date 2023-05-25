@@ -25,7 +25,7 @@ We can see that there are some "background" instructions that run for every inst
 
 The register `$1` is actually the register `$at`(_assembler temporary_). `$8` is `$t0`.
 
-Also, we wrote `add` instruction to move the value in `$t2` to `$a0` because `add` is the real MIPS instruction. However, there is a pseudo instruction called `move` that used to transfer the value of one register to another.
+Also, we wrote `add` instruction to move the value in `$t2` to `$a0` because `add` is the real MIPS instruction. However, there is a pseudo instruction called `move` that is used to transfer the value of one register to another.
 
 `a($zero)` is actually an explicit way of retrieving the value of `a` from the RAM. If we donot write `($zero)` then it will implicitly retrieve the value from RAM. Same goes for `b($zero)`
 

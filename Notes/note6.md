@@ -86,6 +86,10 @@ This instruction only takes two registers and stores the result in the registers
 
 <img src="https://user-images.githubusercontent.com/96164229/240930800-f878aeeb-7e40-4e41-9662-a60f5375f347.png" width="60%" height="60%">
 
+This is the output of the program.
+
+<img src="https://user-images.githubusercontent.com/96164229/240984784-0421938f-68a3-4a37-a2b7-ff8663380d6c.png" width="60%" height="60%">
+
 Here we can see that the product is stored in the register `lo` because the values that are stored in `$t0` and `$t1` are not 32-bits long.
 
 So, to move the value stored in `lo` to any other register we use the `mflo`(_move from LO register_) instruction.

@@ -73,7 +73,7 @@ This instruction basically means: `t0=0+10`
 
 </details>
 
-**This instruction cannot multiply two 32-bit numbers because the result of this multiplication will be a 64-bit number but a register is only 32-bits long. This is the drawback of** `mul`.
+**The instruction** `mul` **cannot multiply two 32-bit numbers because the result of this multiplication will be a 64-bit number but a register is only 32-bits long. This is the drawback of** `mul`.
 
 ## Multiplying using `mult`
 >Useful when multiplying register which have size greater than 16-bits(maximum size of the registers can be 32-bits).

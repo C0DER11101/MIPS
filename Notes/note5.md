@@ -1,6 +1,8 @@
 # Printing a double
 >A double is a 64-bit(8 bytes) value. So it needs to be stored in two registers because one register is 32-bits(4 bytes).
 
+**Always store double values in even registers.**
+
 [asm5.asm](https://github.com/C0DER11101/MIPS/blob/MIPS/tests/asm5.asm)
 
 **Output:**

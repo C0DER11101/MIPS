@@ -2,7 +2,7 @@
 
 # Function arguments and return values
 
-We can send arguments to a procedure/function via the `$a0`, `$a1`, `$a2` and `$a3` registers
+We can send arguments to a procedure/function via the `$a0`, `$a1`, `$a2` and `$a3` registers(as per convention).
 
 If we want to return any value from any procedure then we use the `$v0` and `$v1` registers(mostly we use `$v1` since `$v0` is used to store different codes(1, 4, 10, 11, etc) for different actions).
 

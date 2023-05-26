@@ -5,6 +5,8 @@ It's MIPS :v:
 
 * [http://courses.missouristate.edu/KenVollmar/mars/Help/SyscallHelp.html](http://courses.missouristate.edu/KenVollmar/mars/Help/SyscallHelp.html)
 
+* [https://www.rapidtables.com/convert/number/hex-to-decimal.html](https://www.rapidtables.com/convert/number/hex-to-decimal.html)
+
 <p align="center">
 &#9678; &#9678; &#9678;
 </p>

@@ -9,7 +9,7 @@ The C equivalent of this instruction will be: `showMsg();` which is a function c
 ```asm
 jr $ra
 ```
-The C equivalent of this instruction is: `return;` or `return 0;`(More explanations are provided below).
+The C equivalent of this instruction could be: `return;` or `return 0;`(More explanations are provided below).
 
 The image $(I)$ below shows the address of the procedure and the variables. Images $(II)$ and $(III)$ show the address of each instruction.
 

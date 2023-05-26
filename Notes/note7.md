@@ -13,6 +13,10 @@
 <summary>More</summary>
 
 <img src="https://user-images.githubusercontent.com/96164229/241088196-88642b97-b60c-40aa-b6c7-811668cc5da9.gif" width=510 height=50>
+
+A above gif shows the how the program counter(`pc`) changes its values. To understand this gif better we need another gif :point_down:
+
+<img src="https://user-images.githubusercontent.com/96164229/241088708-9cde383c-dd9f-4ba9-9e6c-6bdebca79705.gif" width=800 height=300>
 </details>
 
 <p align="center">

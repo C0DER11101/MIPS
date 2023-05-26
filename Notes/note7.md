@@ -70,7 +70,7 @@ Read below :point_down:
 
 **Note:**
 
-_We have used the instruction:_ `li $v0, 10`. _The_ `10` _in this instruction is a code that means **terminate execution**. Since we are inside a label, we don't want it to loop the action of calling_ `showMsg` _and again returning to_ `main` _so we are using this instruction so that after executing the everything, the program terminates execution._
+_We have used the instruction:_ `li $v0, 10`. _The_ `10` _in this instruction is a code that means **terminate execution**. Since we are inside a label, we don't want it to loop the action of calling_ `showMsg` _and again returning to_ `main` _so we are using this instruction so that after executing everything, the program terminates execution._
 
 <p align="center">
 &#9678; &#9678; &#9678;

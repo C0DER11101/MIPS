@@ -65,7 +65,7 @@ Read below :point_down:
 
 </details>
 
->`jal` basically sets the register $ra to the value in the program counter(`pc`) and then jump to the target address.
+>`jal` basically sets the register `$ra` to the value in the program counter(`pc`) and then jump to the target address.
 
 <p align="center">
 &#9678; &#9678; &#9678;

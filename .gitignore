@@ -211,6 +211,11 @@ build/
 *.JPG
 *.PNG
 
+# Videos
+*.mp4
+*.m4a
+*.mp3
+
 
 ### Other
 *~

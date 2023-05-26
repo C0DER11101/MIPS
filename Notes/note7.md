@@ -51,15 +51,15 @@ From the gif $(b)$ we can see that each instruction has an address.
 
 Initially, `pc` stores the address of the very first instruction(`li $v0, 4`) which is `4194304` which is the decimal equivalent of `0x00400000`. From gif $(b)$, we can see that we are moving from instruction to instruction and as soon as we encounter `jal showMsg`, the yellow highlight line suddenly moves to `li $v0, 4` inside the procedure `showMsg`.
 
-Take look at gif $(a)$ now, we can see that each instruction is 4 bytes apart, so the value in `pc` increment by 4 everytime we move to the next instruction(except when we jump to `showMsg`).
+Take look at gif $(a)$ now, we can see that each instruction is 4 bytes apart, so the value in `pc` increments by 4 everytime we move to the next instruction(except when we jump to `showMsg`).
 
 So, when `pc` stores `4194320` and we move to the next instruction which is `jal showMsg`(which is also 4 bytes apart from the previous instruction). We see that as soon as the control moves to this instruction the value of `pc` suddenly becomes `4194348` from `4194320` and we can see that `$ra` now stores `4194324`. Actually `4194348` is the decimal equivalent of the address of the procedure `showMsg`(Hex address: `0x0040002c`). So writing `jal showMsg` is similar to writing `jal 0x0040002c` or `jal 4194348`.
 
 Now let us come to the `jr` instruction.
 
-`jr` simply jumps to the address of the next instruction after the caller procedure. Observe gif $(b)$ closely, you will notice that as soon as the yellow highlighted line reaches `jr $ra` it quickly moves to `li $v0, 4` which is right below `jal showMsg` and now notice gif $(a)$ you will see that the values of `$ra` and `pc` both have become `4194324`. Actually `4194324` is the the decimal equivalent of the address of the instruction `li $v0, 4`(Hex address: `0x00400014`) which is right below `jal showMsg`.
+`jr` simply jumps to the address of the next instruction after the `jal` instruction. Observe gif $(b)$ closely, you will notice that as soon as the yellow highlighted line reaches `jr $ra` it quickly moves to `li $v0, 4` which is right below `jal showMsg` and now notice gif $(a)$ you will see that the values of `$ra` and `pc` both have become `4194324`. Actually `4194324` is the the decimal equivalent of the address of the instruction `li $v0, 4`(Hex address: `0x00400014`) which is right below `jal showMsg` instruction.
 
-So when we did `jr $ra` it basically meant `jr 0x00400014` or `jr 4194324` which meant `jump to this address of the instruction which right below the call made to showMsg.`
+`jr $ra` basically means `jr 0x00400014` or `jr 4194324` which means `jump to this address of the instruction which is right below the call made to showMsg.`
 
 Read below :point_down:
 

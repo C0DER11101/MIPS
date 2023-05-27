@@ -23,8 +23,6 @@
 		
 		addi, $s0, $s0, 10
 		
-		sw $ra, 4($sp)
-		
 		addi $t0, $ra, 0
 		
 		jal printNumber

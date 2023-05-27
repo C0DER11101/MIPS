@@ -23,14 +23,11 @@
 		
 		addi, $s0, $s0, 10
 		
-
-		addi $t0, $ra, 0
 		jal printNumber
 		
 		lw $s0, 0($sp)
 		
 		addi $sp, $sp, 4 # freeing up the reserved 4 bytes from the stack
-		
 	
 		jr $ra
 		

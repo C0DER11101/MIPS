@@ -29,6 +29,11 @@ here the code `6` means that we have to provide a floating point number as input
 `add.s` is the instruction used to add two float registers and store the output into a third register.
 
 ```asm
+add.s $f12, $f0, $f2
+```
+here, this instruction basically means that _add_ `$f0` and `$f2` _and store the sum in_ `$f12`.
+
+```asm
 li $v0, 2
 ```
 here `2` is the code used to print a float to the screen.

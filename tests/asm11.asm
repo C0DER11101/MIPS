@@ -4,7 +4,7 @@
 	Zero: .float 0.0
 
 .text
-	lwc1 $f2, Zero
+	lwc1 $f2, Zero # loading the floating point value from the RAM to register $f2
 	
 	li $v0, 4
 	la $a0, msg

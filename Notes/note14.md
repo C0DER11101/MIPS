@@ -24,7 +24,7 @@ When the control reaches the instruction `j while` then it is sent back to the f
 
 <img src="https://user-images.githubusercontent.com/96164229/244596934-8a97a5a0-2cd3-4f64-9828-ccf90f1a6071.gif" width="800" height="300">
 
-We can see that as soon the control reached `j while` it sent back to `beq $t0, 10, exit` instruction. This is how `j` instruction works.
+We can see that as soon as the control reaches `j while` it is sent back to `beq $t0, 10, exit` instruction. This is how `j` instruction works.
 
 <p align="center">
 &#9678; &#9678; &#9678;

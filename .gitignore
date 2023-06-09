@@ -225,3 +225,5 @@ build/
 *~
 node_modules
 template\ assembly
+
+*.jar

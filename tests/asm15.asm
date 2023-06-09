@@ -7,7 +7,7 @@
 		li $t0, 1
 		li $t1, 5
 
-		slt $t3, $t0, $t1 # if t1 < t2 then t3=1(true) otherwise t3=0(false)
+		slt $t3, $t0, $t1 # if t0 < t1 then t3=1(true) otherwise t3=0(false)
 
 		bne $t3, $0, Greater
 

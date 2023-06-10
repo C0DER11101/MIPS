@@ -1,5 +1,6 @@
 .data
 	array: .space 12
+	input: .asciiz "Enter elements into the array:\n"
 	message: .asciiz "Displaying the values:\n"
 	exitMsg: .asciiz "Program over\n"
 	newLine: .byte '\n'
@@ -8,6 +9,10 @@
 
 	main:
 		# take input from the user!!
+		li $v0, 4
+		la $a0, input
+		syscall
+
 		li $t0, 0
 		while:
 			beq $t0, 12, showArray

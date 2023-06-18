@@ -47,7 +47,7 @@ Also, note that you can the store the address of `$sp` into another register.
 ```asm
 addi $t1, $sp, 0
 ```
-`$t1` stores the address in `$sp` which is 2147479540`.
+`$t1` stores the address in `$sp` which is `2147479540`.
 
 So the base address of `$sp` is the final address that you get after subtracting your required number of bytes from the initial address in `$sp`.
 

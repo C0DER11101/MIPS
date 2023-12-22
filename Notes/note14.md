@@ -10,7 +10,7 @@
 ```asm
 j while
 ```
-This instruction is going to jump to the label `while` unconditionally. This instruction is the main ingredient in loops in MIPS. Without it the loops will just be like simple labels. The iteration is that is performed is due to this instruction.
+This instruction is going to jump to the label `while` unconditionally. This instruction is the main ingredient in loops in MIPS. Without it the loops will just be like simple labels. The iteration that is performed is due to this instruction.
 
 Address of `beq $t0, 10, exit`, the first instruction inside the `while` label, in the given assembly program is shown below:
 

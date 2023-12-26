@@ -72,7 +72,7 @@ MIPS code:
 	* _The register that stores the address, in our case `$t0`, is like a pointer._
 	* _To access the value in the address of `$t0` we need to "dereference" it with `()`._
 	* _If we have to use any offset with the pointer, then we will use integers, we won't use registers storing integers as offsets. Example: Assume `$t1` stores_ $4$_, we can't write `$t1($t0)` in order to access the next value in the array, it will throw error. We must use: `4($t0)`. Or we can also increment `$t0` by_ $4$_._
-	* _An array can also be initialized as:_ `array: 2, 4, 6, 1`. _This is an array of 4 integers._
+	* _An array can also be initialized as:_ `array: 2, 4, 6, 1`. _This is an array of_ $4$ _integers._
 
 <p align="center">
 &#9678; &#9678; &#9678;

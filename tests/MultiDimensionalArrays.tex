@@ -1,0 +1,126 @@
+\documentclass{article}
+
+\makeatletter
+
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}{-3.25ex \@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont\normalsize\bfseries}}
+
+\makeatother
+
+\begin{document}
+\section{Multi-dimensional arrays in MIPS}
+\subsection{Implementing multi-dimensional arrays}
+\paragraph{Ways of implementing multi-dimensional arrays}
+\begin{itemize}
+\item Row major $\rightarrow$ Most widely used.
+\item Column major $\rightarrow$ Not widely used.
+\end{itemize}
+
+\subsubsection{Row-major way}
+\subparagraph{}
+
+Consider this 2D array:
+
+\begin{center}
+int array[3][4];
+\end{center}
+This is how the array looks like:
+
+\[
+\left[
+\begin{array}{cccc}
+array[0][0] & array[0][1] & array[0][2] & array[0][3] \\
+array[1][0] & array[1][1] & array[1][2] & array[1][3] \\
+array[2][0] & array[2][1] & array[2][2] & array[2][3] \\
+\end{array}
+\right]
+\]
+
+This is how the array will look like in row-major form:
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+0 & array[0][0] \\
+\hline
+1 & array[0][1] \\
+\hline
+2 & array[0][2] \\
+\hline
+3 & array[0][3] \\
+\hline
+4 & array[1][0] \\
+\hline
+5 & array[1][1] \\
+\hline
+6 & array[1][2] \\
+\hline
+7 & array[1][3] \\
+\hline
+8 & array[2][0] \\
+\hline
+9 & array[2][1] \\
+\hline
+10 & array[2][2] \\
+\hline
+11 & array[2][3] \\
+\hline
+\end{tabular}
+\caption{Row-Major representation of matrix array}
+\label{tab:mytable}
+\end{table}
+
+To access the values in the array, we will use the following formula:
+
+$$
+addr\ =\ baseAddr\ +\ (rowIndex\ *\ colSize\ +\ colIndex)\ *\ dataSize
+$$
+
+\newpage
+\subsubsection{Column-major way}
+
+\subparagraph{}
+
+To access the values in the array, we will use the following formula:
+
+$$
+addr\ =\ baseAddr\ +\ (colIndex\ *\ rowSize\ +\ rowIndex)\ *\ dataSize
+$$
+
+The array in column-representation:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+0 & array[0][0] \\
+\hline
+1 & array[1][0] \\
+\hline
+2 & array[2][0] \\
+\hline
+3 & array[0][1] \\
+\hline
+4 & array[1][1] \\
+\hline
+5 & array[2][1] \\
+\hline
+6 & array[0][2] \\
+\hline
+7 & array[1][2] \\
+\hline
+8 & array[2][2] \\
+\hline
+9 & array[0][3] \\
+\hline
+10 & array[1][3] \\
+\hline
+11 & array[2][3] \\
+\hline
+\end{tabular}
+\caption{Column-Major representation of matrix array}
+\label{tab:mytable}
+\end{table}
+
+\end{document}

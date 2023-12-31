@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{varwidth}
+
+\makeatletter
+
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}{-3.25ex \@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont\normalsize\bfseries}}
+
+\makeatother
+
+\begin{document}
+\section{Displaying a line on the bitmap display}
+
+\paragraph{CODE}
+
+View the code from \href{https://github.com/C0DER11101/MIPS/blob/MIPS/Project/simple/simple2.asm}{here}
+
+\begin{verbatimtab}[4]
+.data
+	row: .word 256
+	col: .word 512
+	frame: .space 0x20000
+	
+	.eqv DATA_SIZE 4
+\end{verbatimtab}
+
+\begin{itemize}
+\item \textbf{row} basically represents the height of the display. More the number of rows, more is the height.
+\item \textbf{col} represents the width of the display. More the number of columns, more is the width.
+\end{itemize}
+
+\section{The \textit{drawLine} procedure}
+\paragraph{Snippets}
+
+\begin{verbatimtab}[4]
+li $t0, 100
+li $t1, 200
+li $t2, 0x0047FAAF
+\end{verbatimtab}
+
+\begin{itemize}
+\item \textbf{\$t0} is our $X$-coordinate.
+\item \textbf{\$t1} is our $Y$-coordinate.
+\item \textbf{\$t2} is our pixel.
+\end{itemize}
+
+Now, we want a horizontal line, therefore we will have to move horizontally or in a row.
+
+\noindent
+\fbox{\begin{varwidth}{\textwidth}
+\textbf{QUICK NOTE:} \underline{\textit{A slight confusion}}
+\vspace{10pt}
+
+I often get confused with rows and columns when it comes to working coordinates. As long as it's matrix, I am fine. But this coordinate system gets me confused. I end up getting stuck with which one represents the row and which one represents the column.
+
+\vspace{10pt}
+
+Now, \textbf{\$t0} is our $X$-coordinate which has a value of $100$. Now, an $X$-coordinate moves horizontally(that is in a row, but from one column to another). So, $X$-coordinate represents, in our case, the $100^{th}$ column. In general, \textbf{if $x\ =\ m$ then it basically represents the $m^{th}$ column(in terms of display).}
+
+\vspace{10pt}
+
+Next, \textbf{\$t1} is our $Y$-coordinate which has a value of $200$. A $Y$-coordinate moves vertically(that is in a column, but from one row to another).
+So, $Y$-coordiante represents, in our case, the $200^{th}$ row. In general, \textbf{if $y\ =\ n$ then it basically represents the $n^{th}$ row(in terms of display).}
+\end{varwidth}}
+
+More snippets:
+
+\begin{verbatimtab}[4]
+lw $t6, row
+lw $t7, col
+\end{verbatimtab}
+
+\begin{itemize}
+\item \textbf{\$t6} is the row size(height) of the display.
+\item \textbf{\$t7} is the column size(width) of the display.
+\end{itemize}
+
+\subsection{The \textit{drawLoop}}
+\paragraph{}
+Now, since we will move horizontally i.e. in a row, we will use this formula:
+$$
+addr\ =\ baseAddr\ +\ (rowIndex\ *\ colSize\ +\ colIndex)\ *\ dataSize
+$$
+\begin{verbatimtab}[4]
+mul $t3, $t1, $t7
+add $t3, $t3, $t0
+mul $t3, $t3, DATA_SIZE
+add $t3, $t3, $a0
+\end{verbatimtab}
+
+These $4$ instructions are actually implementing the above mentioned formula.
+
+This loop repeats until \textbf{\$t0} becomes equal or greater than 200.
+\newpage
+After this loop executes $100$ times, we get the following output:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.2\textwidth]{bitmapDisplayLine.png}
+\caption{A line in bitmap display}
+\label{fig:example}
+\end{figure}
+
+
+\end{document}

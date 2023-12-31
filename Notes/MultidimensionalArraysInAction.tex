@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{moreverb}
+\usepackage{hyperref}
+
+\makeatletter
+
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}{-3.25ex \@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont\normalsize\bfseries}}
+
+\makeatother
+
+\begin{document}
+
+\section{Multi-dimensional array in MIPS}
+\subsection{MIPS program to find the sum of diagonal elements of a matrix}
+\paragraph{CODE}
+Here is the MIPS code to perform diagonal sum of a matrix.
+
+\begin{verbatimtab}[4]
+
+.data
+	myMatrix: .word 2, 5
+				.word 10, 7
+				
+	size: .word 2
+	
+	.eqv DATA_SIZE 4
+	
+	sum: .word 0
+	
+	sumIs: .asciiz "Sum of the diagonal elements of the matrix is: "
+
+.text
+	main:
+		la $a0, myMatrix
+		
+		lw $a1, size
+		
+		jal sumDiag
+		
+		li $v0, 4
+		la $a0, sumIs
+		syscall
+		
+		li $v0, 1
+		lw $a0, sum
+		syscall
+		
+		li $v0, 10
+		syscall
+		
+	sumDiag:
+		li $t0, 0
+		lw $t1, sum
+		
+		diagLoop:
+			mul $t2, $t0, $a1
+			add $t2, $t2, $t0
+			mul $t2, $t2, DATA_SIZE
+			add $t3, $t2, $a0
+			
+			lw $t2, ($t3)
+			add $t1, $t1, $t2
+			addi $t0, $t0, 1
+			
+			blt $t0, $a1, diagLoop
+			
+		jr $ra
+
+\end{verbatimtab}
+
+You can get the code from \href{https://github.com/C0DER11101/MIPS/blob/MIPS/tests/asm26.asm}{here}
+
+\subsubsection{Creating the matrix}
+
+\paragraph{Matrix in MIPS}
+
+Creating a 2D array in MIPS is simple(as can be seen from the code).
+The matrix that we created in the code above is a square matrix.
+
+\paragraph{Defining constants}
+In MIPS, defining a constant can be done using \textit{.eqv}. It's like the \textbf{\#define} preprocessor in C.
+
+\paragraph{sumDiag}
+This function performs the diagonal sum of the matrix. Here, we have used the \textbf{row-major} approach.
+\textbf{\$t0} is the index. It's both the row index and also the column index because we are working with only diagonal elements and not with all the elements.
+
+\textbf{\$t1} represents the sum of the diagonal elements of the matrix.
+
+\paragraph{diagLoop}
+\textbf{size} basically represents the dimensions of the matrix. Here \textbf{size} is $2$ which means that the dimensions of the matrix is $2\times 2$
+
+The formula that we have used is $$addr\ =\ baseAddr\ +\ (rowIndex\ *\ colSize\ +\ colIndex)\ *\ dataSize$$
+
+\subsubsection{Which portion represents what}
+\paragraph{\textbf{mul \$t2, \$t0, \$a1}}
+This instruction represents $rowIndex\ *\ colSize$ because \textbf{\$t0} represents the index and \textbf{\$a1} represents the size of the matrix and the result is being stored into \textbf{\$t2}.
+
+\paragraph{\textbf{add \$t2, \$t2, \$t0}}
+This instruction represents $rowIndex\ *\ colSize\ +\ colIndex$. \textbf{\$t2} now stores the product of \textbf{\$t0} and \textbf{\$a1} so we are adding the column index which is \textbf{\$t0} and storing the sum into \textbf{\$t2}.
+
+\paragraph{\textbf{mul \$t2, \$t2, DATA\_SIZE}}
+This instruction represents $(rowIndex\ *\ colSize\ +\ colIndex)\ *\ dataSize$. We are multiplying \textbf{\$t2} with \textbf{DATA\_SIZE} and storing the result into \textbf{\$t2}.
+
+\paragraph{\textbf{add \$t3, \$t2, \$a0}}
+This instruction represents $baseAddr\ +\ (rowIndex\ *\ colSize\ +\ colIndex)\ *\ dataSize$. We are adding the base address(stored in \textbf{\$a0}) to the result, that we had previously obtained, stored in \textbf{\$t2} and storing that sum into \textbf{\$t3}. We are not storing the result into \textbf{\$a0} because we donot want to lose the base address of the matrix.
+
+\paragraph{\textbf{lw \$t2, (\$t3)}}
+We are loading the value stored in the address in \textbf{\$t3} and storing it into \textbf{\$t2}.
+
+\paragraph{\textbf{add \$t1, \$t1, \$t2}}
+We are adding the value in \textbf{\$t2} to \textbf{\$t1} which represents the sum of the diagonal elements of the matrix.
+
+\paragraph{\textbf{addi \$t0, \$t0, 1}}
+We are incrementing the index by $1$ here.
+
+\paragraph{\textbf{blt \$t0, \$a1, diagLoop}}
+We are basically checking whether \textbf{\$t0} is smaller than the size of the matrix or not. If it is, then the loop will continue to sum up the diagonal elements. But if it is equal to or greater than the size of the matrix then the function \textbf{sumDiag} will terminate.
+
+\end{document}

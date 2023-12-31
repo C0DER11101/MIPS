@@ -21,7 +21,7 @@
 		
 		# load the pixel color
 		
-		li $t2, 0x0040F7BC  # 0xFF is 255 in decimal(which is white)
+		li $t2, 0x0040F7BC  # this is blue-green color
 		
 		# calculate the memory address for this pixel
 		

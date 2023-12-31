@@ -27,7 +27,7 @@
 		drawLoop:
 			# calculate address for pixel
 			
-			# We will move row-wise
+			# We will move horizontally(that is, in a row)
 			
 			# rowIndex * colSize
 			mul $t3, $t1, $t7
